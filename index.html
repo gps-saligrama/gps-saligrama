@@ -1,0 +1,872 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>GOPAL PUTTU SHANBHOGUE &amp; SONS | Saligrama</title>
+  
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  
+  <!-- FontAwesome 6 Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  
+  <!-- Custom Stylesheet -->
+  <link rel="stylesheet" href="style.css">
+</head>
+<body id="top" class="bg-[#faf7f2] text-slate-800">
+
+  <!-- 1. TOP TICKER BAR -->
+  <div class="bg-[#07321a] text-[#f7e8a4] text-xs font-medium px-4 py-2 border-b border-emerald-950 flex flex-wrap justify-between items-center gap-2">
+    <div class="flex items-center gap-2 flex-wrap">
+      <span class="inline-block w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
+      <span class="font-semibold text-white">Merchant Store</span>
+      <span>•</span>
+      <span>Opp. Shree Anjaneya Temple, Main Road, Saligrama - 576225</span>
+      <span class="hidden md:inline">•</span>
+      <span class="hidden md:inline text-amber-300 font-normal">ಅಕ್ಕಿ, ಸಾಂಬಾರ ಪದಾರ್ಥಗಳು &amp; ದಿನಸಿ</span>
+    </div>
+    <div class="flex items-center gap-1.5 bg-[#052514] px-2.5 py-1 rounded border border-emerald-800 font-mono text-amber-300 text-xs ml-auto">
+      <i class="far fa-clock"></i>
+      <span id="top-bar-clock">Loading Clock...</span>
+    </div>
+  </div>
+
+  <!-- 2. STICKY NAVBAR -->
+  <header class="sticky top-0 z-50 bg-white/95 backdrop-blur-md border-b border-stone-200">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+      
+      <!-- Logo Branding -->
+      <a href="#top" class="flex items-center gap-3">
+        <div class="w-12 h-12 rounded-xl bg-[#113a22] flex items-center justify-center text-[#e8b949] font-serif-title font-bold text-xl shadow-md border border-amber-600/30 shrink-0">
+          GPS
+        </div>
+        <div>
+          <h1 class="font-header-brand text-lg md:text-xl font-bold text-[#113a22] leading-tight tracking-wide">
+            GOPAL PUTTU SHANBHOGUE &amp; SONS
+          </h1>
+          <p class="text-xs text-stone-500 font-medium">
+            <span class="text-[#b36712] font-semibold tracking-wider">SALIGRAMA</span> • Traditional Merchant &amp; Provisions
+          </p>
+        </div>
+      </a>
+
+      <!-- Header Action Controls -->
+      <div class="flex items-center gap-3">
+        <!-- Direct Jump to Map with smooth offset -->
+        <a href="#interactive-map" class="inline-flex items-center gap-1.5 px-3 py-2 rounded-lg bg-stone-100 hover:bg-stone-200 text-stone-700 text-xs font-semibold transition">
+          <i class="fa-solid fa-location-dot text-amber-700"></i>
+          <span>Directions</span>
+        </a>
+        <a href="tel:+919916009477" class="inline-flex items-center gap-2 px-4 py-2 rounded-lg border border-stone-300 text-stone-700 text-xs font-semibold hover:bg-stone-50 transition">
+          <i class="fa-solid fa-phone text-[#0d4a2b]"></i>
+          <span>Call Us</span>
+        </a>
+        <a href="https://wa.me/919916009477" target="_blank" class="inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-[#008f5d] hover:bg-[#007b50] text-white text-xs font-semibold shadow-sm transition">
+          <i class="fa-brands fa-whatsapp text-sm"></i>
+          <span>WhatsApp</span>
+        </a>
+        
+        <button id="menu-toggle-btn" type="button" class="p-2 text-stone-700 hover:text-black focus:outline-none cursor-pointer transition" aria-label="Toggle Navigation Menu">
+          <i id="menu-toggle-icon" class="fa-solid fa-bars text-2xl"></i>
+        </button>
+      </div>
+
+    </div>
+
+    <!-- DROP-DOWN FULL SCREEN MENU PANEL -->
+    <div id="full-menu-panel" class="hidden bg-white border-t border-stone-100 px-6 pt-5 pb-8 flex-col justify-between min-h-[calc(100vh-80px)]">
+      <nav class="space-y-3">
+        <a href="#top" class="nav-item-link block px-5 py-3.5 rounded-xl bg-[#faf5e8] text-[#1c4b28] font-bold text-lg transition">
+          Home
+        </a>
+        <a href="#about" class="nav-item-link block px-5 py-2.5 text-stone-800 font-semibold text-lg hover:text-emerald-800 transition">
+          About &amp; Heritage
+        </a>
+        <a href="#offerings" class="nav-item-link block px-5 py-2.5 text-stone-800 font-semibold text-lg hover:text-emerald-800 transition">
+          Categories &amp; What We Offer
+        </a>
+        <a href="#schedule" class="nav-item-link flex items-center justify-between px-5 py-2.5 text-stone-800 font-semibold text-lg hover:text-emerald-800 transition">
+          <span>Store Timings</span>
+          <span id="nav-timing-badge" class="px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wide bg-[#fee2e2] text-[#991b1b]">
+            Closed Now
+          </span>
+        </a>
+        <a href="#interactive-map" class="nav-item-link block px-5 py-2.5 text-stone-800 font-semibold text-lg hover:text-emerald-800 transition">
+          Location &amp; Contact
+        </a>
+      </nav>
+
+      <div class="pt-8 grid grid-cols-2 gap-4">
+        <a href="tel:+919916009477" class="flex items-center justify-center gap-2 py-3.5 px-4 rounded-xl border border-stone-300 bg-white hover:bg-stone-50 text-stone-800 font-bold text-sm shadow-sm transition">
+          <i class="fa-solid fa-phone text-[#0d4a2b]"></i>
+          <span>Call Us</span>
+        </a>
+        <a href="https://wa.me/919916009477" target="_blank" class="flex items-center justify-center gap-2 py-3.5 px-4 rounded-xl bg-[#008f5d] hover:bg-[#007b50] text-white font-bold text-sm shadow-sm transition">
+          <i class="fa-brands fa-whatsapp text-lg"></i>
+          <span>WhatsApp</span>
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- 3. HERO SECTION (Split-Hero with Real Storefront Photo: shop1.jpeg) -->
+  <section class="py-10 md:py-16 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
+      
+      <!-- Left Column: Story & Action Buttons -->
+      <div class="lg:col-span-7 text-left space-y-6">
+        
+        <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-amber-50 border border-amber-200 text-amber-900 text-xs font-semibold tracking-wider shadow-sm">
+          <i class="fa-solid fa-sparkles text-amber-600"></i>
+          <span>TRADITIONAL MERCHANT HERITAGE • SALIGRAMA</span>
+        </div>
+
+        <h2 class="font-serif-title text-3xl sm:text-4xl md:text-5xl text-[#0d4a2b] font-bold leading-tight">
+          Your Trusted Neighborhood Merchants in <span class="text-[#b35b13] underline decoration-[#b35b13]/40 underline-offset-8">Saligrama</span>
+        </h2>
+
+        <p class="text-stone-600 text-base md:text-lg font-normal leading-relaxed">
+          Serving generations of families with fresh provisions, authentic regional spices, staple grains, and sacred pooja essentials — located right opposite the historic Shree Anjaneya Temple on Main Road.
+        </p>
+
+        <!-- Main Action Buttons -->
+        <div class="flex flex-wrap items-center gap-3 pt-2">
+          <a href="#offerings" class="inline-flex items-center gap-2.5 px-6 py-3.5 rounded-xl bg-[#0d4a2b] hover:bg-[#08351e] text-white text-sm font-semibold shadow-md transition transform hover:-translate-y-0.5">
+            <i class="fa-solid fa-bag-shopping"></i>
+            <span>Explore Offerings</span>
+          </a>
+          
+          <a href="#interactive-map" class="inline-flex items-center gap-2.5 px-6 py-3.5 rounded-xl bg-white border border-stone-300 hover:bg-stone-50 text-stone-800 text-sm font-semibold shadow-sm transition transform hover:-translate-y-0.5">
+            <i class="fa-solid fa-location-dot text-amber-700"></i>
+            <span>Get Directions</span>
+            <i class="fa-solid fa-arrow-down text-[11px] text-stone-400"></i>
+          </a>
+          
+          <a href="https://wa.me/919916009477?text=Hello%20Gopal%20Puttu%20Shanbhogue%20%26%20Sons,%20I%20have%20an%20inquiry." target="_blank" class="inline-flex items-center gap-2 px-5 py-3.5 rounded-xl bg-[#008f5d] hover:bg-[#007b50] text-white text-sm font-semibold shadow-sm transition transform hover:-translate-y-0.5">
+            <i class="fa-brands fa-whatsapp text-lg"></i>
+            <span>WhatsApp Inquiry</span>
+          </a>
+        </div>
+
+        <!-- 4 Highlights Bar -->
+        <div class="grid grid-cols-2 sm:grid-cols-4 gap-3 pt-4 border-t border-stone-200/80">
+          <div class="bg-white p-3.5 rounded-xl border border-stone-200 shadow-sm">
+            <h4 class="font-serif-title font-bold text-[#a6530b] text-sm">Opp. Temple</h4>
+            <p class="text-xs text-stone-500 mt-0.5">Anjaneya Temple</p>
+          </div>
+          <div class="bg-white p-3.5 rounded-xl border border-stone-200 shadow-sm">
+            <h4 class="font-serif-title font-bold text-[#0d4a2b] text-sm">Pure Staples</h4>
+            <p class="text-xs text-stone-500 mt-0.5">Handpicked Grains</p>
+          </div>
+          <div class="bg-white p-3.5 rounded-xl border border-stone-200 shadow-sm">
+            <h4 class="font-serif-title font-bold text-[#a6530b] text-sm">Honest Rates</h4>
+            <p class="text-xs text-stone-500 mt-0.5">Fair Pricing</p>
+          </div>
+          <div class="bg-white p-3.5 rounded-xl border border-stone-200 shadow-sm">
+            <h4 class="font-serif-title font-bold text-[#0d4a2b] text-sm">Cash &amp; UPI</h4>
+            <p class="text-xs text-stone-500 mt-0.5">GPay / PhonePe</p>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Right Column: Real Storefront Photo (shop1.jpeg) -->
+      <div class="lg:col-span-5">
+        <div class="bg-white rounded-3xl p-3 border border-stone-200 shadow-xl transition hover:shadow-2xl">
+          
+          <div class="relative rounded-2xl overflow-hidden aspect-[4/3] bg-stone-100 group">
+            <img id="hero-photo-img" 
+                 src="./images/shop1.jpeg" 
+                 onerror="this.src='shop1.jpeg'" 
+                 alt="Gopal Puttu Shanbhogue &amp; Sons Shopfront" 
+                 class="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-700">
+            
+            <div class="absolute inset-0 bg-gradient-to-t from-black/85 via-black/20 to-transparent flex flex-col justify-end p-5 text-white">
+              <span class="inline-block px-2.5 py-0.5 rounded text-[10px] font-bold tracking-wider bg-amber-500 text-stone-900 uppercase w-fit mb-1.5 shadow-sm">
+                <i class="fa-solid fa-ribbon mr-1"></i>Est. Heritage Merchant
+              </span>
+              <h3 class="font-serif-title text-lg font-bold text-white leading-tight">
+                Gopal Puttu Shanbhogue &amp; Sons
+              </h3>
+              <p class="text-xs text-stone-300 flex items-center gap-1.5 mt-1">
+                <i class="fa-solid fa-location-dot text-amber-400"></i>
+                Main Road, Saligrama (Opp. Shree Anjaneya Temple)
+              </p>
+            </div>
+          </div>
+
+          <!-- Bottom Card Live Status Indicator -->
+          <div class="px-3 pt-3 pb-1 flex items-center justify-between text-xs">
+            <span id="hero-status-sub" class="flex items-center text-stone-700 font-medium">
+              <span class="inline-block w-2.5 h-2.5 rounded-full bg-emerald-500 mr-2 pulse-badge"></span>
+              Store Open Now
+            </span>
+            <a href="#schedule" class="text-emerald-700 font-bold hover:underline flex items-center gap-1">
+              <span>View Timings</span>
+              <i class="fa-solid fa-chevron-right text-[10px]"></i>
+            </a>
+          </div>
+
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- 4. ABOUT & HERITAGE SECTION (Real photos: shop2.jpeg and shop3.jpeg) -->
+  <section id="about" class="py-16 bg-[#f5efe4] border-y border-stone-200">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 text-center">
+      
+      <div class="inline-block px-3 py-1 rounded-full bg-[#faecd6] text-[#9c500e] text-xs font-semibold tracking-wider mb-3">
+        HONORING OUR ROOTS
+      </div>
+
+      <h2 class="font-serif-title text-3xl sm:text-4xl font-bold text-[#0d4a2b] mb-3">
+        Our Story &amp; Mercantile Heritage
+      </h2>
+      <div class="w-16 h-1 bg-[#d18417] mx-auto rounded-full mb-6"></div>
+
+      <p class="text-base sm:text-lg text-stone-700 font-medium max-w-2xl mx-auto mb-8 leading-relaxed">
+        Serving the households of Saligrama, Kota, Sasthan, and surrounding coastal hamlets with authentic provisions, pure cooking ingredients, and personalized care.
+      </p>
+
+      <div class="space-y-4 text-left text-stone-600 text-sm sm:text-base leading-relaxed bg-white/70 p-6 sm:p-8 rounded-2xl border border-stone-200/60 shadow-sm mb-12">
+        <p>
+          At <strong class="text-stone-900 font-semibold">GOPAL PUTTU SHANBHOGUE &amp; SONS</strong>, grocery shopping has always been a warm neighborhood tradition. Prominently positioned directly opposite the historic <span class="text-[#a85207] font-semibold">Shree Anjaneya Temple</span> on Saligrama Main Road, our shop is the early morning stop for devotees, home chefs, and village elders.
+        </p>
+        <p>
+          From premium grains like Sona Masoori and red boiled rice (Kuchalakki) to fragrant Byadgi chillies, cold-pressed coconut oil, and sacred camphor, our shelves reflect the authentic tastes and traditions of Karnataka. We stand firmly for honest weighing, unadulterated provisions, and fair pricing without compromise.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-4 text-left mb-12">
+        <div class="bg-white p-5 rounded-xl border border-stone-200 shadow-sm">
+          <div class="w-9 h-9 rounded-lg bg-emerald-800 text-white flex items-center justify-center mb-3">
+            <i class="fa-solid fa-shield-halved"></i>
+          </div>
+          <h4 class="font-serif-title font-bold text-stone-900 text-base mb-1">Pure Quality Goods</h4>
+          <p class="text-xs text-stone-500 leading-normal">Cleaned, sorted grains and aromatic spices inspected for home cooking.</p>
+        </div>
+
+        <div class="bg-white p-5 rounded-xl border border-stone-200 shadow-sm">
+          <div class="w-9 h-9 rounded-lg bg-[#b5580e] text-white flex items-center justify-center mb-3">
+            <i class="fa-solid fa-award"></i>
+          </div>
+          <h4 class="font-serif-title font-bold text-stone-900 text-base mb-1">Honest Fair Pricing</h4>
+          <p class="text-xs text-stone-500 leading-normal">Generations of fair merchant rates with accurate electronic scale weighing.</p>
+        </div>
+
+        <div class="bg-white p-5 rounded-xl border border-stone-200 shadow-sm">
+          <div class="w-9 h-9 rounded-lg bg-emerald-800 text-white flex items-center justify-center mb-3">
+            <i class="fa-solid fa-hand-holding-heart"></i>
+          </div>
+          <h4 class="font-serif-title font-bold text-stone-900 text-base mb-1">Personal Attention</h4>
+          <p class="text-xs text-stone-500 leading-normal">Friendly guidance, custom portioning, and dependable care for every family.</p>
+        </div>
+      </div>
+
+      <!-- Real Store Interior Photos (shop2.jpeg and shop3.jpeg) -->
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+        <div class="relative rounded-2xl overflow-hidden border border-stone-200 shadow-md h-72 bg-stone-100 group">
+          <img id="heritage-photo-1" 
+               src="./images/shop2.jpeg" 
+               onerror="this.src='shop2.jpeg'" 
+               loading="lazy" 
+               alt="Gopal Puttu Shanbhogue Store Aisles and Provisions" 
+               class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+          <div class="absolute bottom-0 inset-x-0 bg-gradient-to-t from-black/75 to-transparent p-4 text-left">
+            <span class="text-amber-300 text-[10px] font-bold uppercase tracking-wider block">Store Interior</span>
+            <p class="text-white text-xs font-semibold">Fully stocked grains, provisions &amp; daily staples</p>
+          </div>
+        </div>
+
+        <div class="relative rounded-2xl overflow-hidden border border-stone-200 shadow-md h-72 bg-stone-100 group">
+          <img id="heritage-photo-2" 
+               src="./images/shop3.jpeg" 
+               onerror="this.src='shop3.jpeg'" 
+               loading="lazy" 
+               alt="Gopal Puttu Shanbhogue Front Billing Desk" 
+               class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+          <div class="absolute bottom-0 inset-x-0 bg-gradient-to-t from-black/75 to-transparent p-4 text-left">
+            <span class="text-amber-300 text-[10px] font-bold uppercase tracking-wider block">Serving Saligrama</span>
+            <p class="text-white text-xs font-semibold">Front counter, weighing scale &amp; packaged goods</p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- 5. STORE CATEGORIES & AVAILABLE PROVISIONS -->
+  <section id="offerings" class="py-16 max-w-6xl mx-auto px-4 sm:px-6">
+    <div class="text-center mb-10">
+      <div class="inline-block px-3 py-1 rounded-full bg-amber-50 text-amber-900 border border-amber-200 text-xs font-semibold tracking-wider mb-3">
+        WHAT WE OFFER
+      </div>
+      <h2 class="font-serif-title text-3xl sm:text-4xl font-bold text-[#0d4a2b] mb-3">
+        Store Categories &amp; Provisions
+      </h2>
+      <div class="w-16 h-1 bg-[#d18417] mx-auto rounded-full mb-4"></div>
+      <p class="text-stone-600 text-sm sm:text-base max-w-xl mx-auto">
+        Browse our everyday pantry staples, cooking ingredients, festive pooja samagri, and packaged goods. Everything available right in our Saligrama store.
+      </p>
+    </div>
+
+    <!-- Hidden input to prevent external script.js reference errors -->
+    <input type="hidden" id="search-input" value="">
+
+    <!-- Helpful WhatsApp Item Inquiry Card (Direct assistance for items like Indica, soaps, etc.) -->
+    <div class="max-w-3xl mx-auto mb-10 bg-white border border-stone-200 rounded-2xl p-4 sm:p-5 flex flex-col sm:flex-row items-center justify-between gap-4 shadow-sm">
+      <div class="flex items-center gap-3 text-left">
+        <div class="w-10 h-10 rounded-xl bg-emerald-50 text-[#008f5d] flex items-center justify-center text-lg shrink-0">
+          <i class="fa-solid fa-clipboard-list"></i>
+        </div>
+        <div>
+          <h4 class="font-bold text-stone-900 text-xs sm:text-sm">Looking for a specific item or brand?</h4>
+          <p class="text-[11px] text-stone-500">From personal care (Indica hair color, soaps) to packaged foods &amp; detergents — just ask us on WhatsApp!</p>
+        </div>
+      </div>
+      <a href="https://wa.me/919916009477?text=Hello%20GPS%20Stores,%20is%20this%20item%20available%20in%20store:" target="_blank" class="whitespace-nowrap px-4 py-2 rounded-lg bg-[#008f5d] hover:bg-[#007b50] text-white text-xs font-bold transition shadow-sm flex items-center gap-1.5">
+        <i class="fa-brands fa-whatsapp text-sm"></i> Check Item Availability
+      </a>
+    </div>
+
+    <!-- Product Cards Grid with 'Available in Store' Badges -->
+    <div id="offerings-container" class="grid grid-cols-1 md:grid-cols-2 gap-6">
+
+      <!-- Card 1: Grains & Pulses -->
+      <div class="product-card bg-white rounded-2xl border border-stone-200 overflow-hidden shadow-sm flex flex-col" data-category="grains">
+        <div class="relative h-56 bg-stone-100">
+          <img src="https://images.unsplash.com/photo-1586201375761-83865001e31c?auto=format&fit=crop&w=600&q=75" loading="lazy" width="600" height="224" alt="Rice Grains" class="w-full h-full object-cover">
+          <span class="absolute top-3 right-3 bg-emerald-700 text-white text-[10px] font-bold px-2.5 py-1 rounded-full flex items-center gap-1 shadow">
+            <span class="w-1.5 h-1.5 rounded-full bg-white"></span> Available in Store
+          </span>
+          <span class="absolute bottom-3 left-3 bg-black/70 backdrop-blur-sm text-amber-300 text-[10px] font-bold px-2 py-0.5 rounded">
+            Daily Staples
+          </span>
+        </div>
+        <div class="p-6 flex-1 flex flex-col justify-between">
+          <div>
+            <h3 class="font-serif-title text-xl font-bold text-stone-900 mb-1">Grains &amp; Pulses</h3>
+            <p class="text-xs text-stone-500 mb-4">Handpicked quality grains and lentils for coastal Karnataka homes</p>
+            <div class="bg-stone-50 p-4 rounded-xl border border-stone-100 space-y-2 text-xs text-stone-700">
+              <p>• <span class="font-semibold">Rice:</span> Sona Masoori, Boiled Rice (Kuchalakki), Raw Rice, Basmati</p>
+              <p>• <span class="font-semibold">Dals:</span> Toor Dal, Moong Dal, Urad Dal (White &amp; Whole), Chana Dal, Masoor</p>
+              <p>• <span class="font-semibold">Flours:</span> Whole Wheat Atta, Maida, Rice Flour, Ragi Flour</p>
+              <p>• <span class="font-semibold">Specialties:</span> Avalakki (Thick &amp; Thin Poha), Sooji, Chiroti Rava, Bansi Rava</p>
+              <p>• <span class="font-semibold">Legumes:</span> Black Chana, Green Moong, Rajma, White Peas, Peanuts</p>
+            </div>
+          </div>
+          <div class="mt-4 pt-4 border-t border-stone-100 flex items-center justify-between text-xs">
+            <span class="text-stone-400">Packaged &amp; Loose portions</span>
+            <a href="https://wa.me/919916009477?text=Hello%20GPS%20Stores,%20I%20want%20to%20inquire%20about%20Grains%20and%20Pulses" target="_blank" class="text-emerald-700 font-bold hover:underline flex items-center gap-1">
+              WhatsApp Query <i class="fa-solid fa-chevron-right text-[10px]"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Card 2: Spices & Whole Masalas -->
+      <div class="product-card bg-white rounded-2xl border border-stone-200 overflow-hidden shadow-sm flex flex-col" data-category="spices">
+        <div class="relative h-56 bg-stone-100">
+          <img src="https://images.unsplash.com/photo-1596040033229-a9821ebd058d?auto=format&fit=crop&w=600&q=75" loading="lazy" width="600" height="224" alt="Spices" class="w-full h-full object-cover">
+          <span class="absolute top-3 right-3 bg-emerald-700 text-white text-[10px] font-bold px-2.5 py-1 rounded-full flex items-center gap-1 shadow">
+            <span class="w-1.5 h-1.5 rounded-full bg-white"></span> Available in Store
+          </span>
+          <span class="absolute bottom-3 left-3 bg-black/70 backdrop-blur-sm text-amber-300 text-[10px] font-bold px-2 py-0.5 rounded">
+            Aromatic &amp; Pure
+          </span>
+        </div>
+        <div class="p-6 flex-1 flex flex-col justify-between">
+          <div>
+            <h3 class="font-serif-title text-xl font-bold text-stone-900 mb-1">Spices &amp; Whole Masalas</h3>
+            <p class="text-xs text-stone-500 mb-4">Authentic regional spices, sun-dried chillies and pungent whole seeds</p>
+            <div class="bg-stone-50 p-4 rounded-xl border border-stone-100 space-y-2 text-xs text-stone-700">
+              <p>• <span class="font-semibold">Chillies:</span> Famous Byadgi Chillies (rich red color) &amp; Guntur Spicy Chillies</p>
+              <p>• <span class="font-semibold">Whole Spices:</span> Coriander Seeds (Kothambari), Cumin (Jeera), Mustard (Sasive)</p>
+              <p>• <span class="font-semibold">Turmeric &amp; Pepper:</span> Salem Haldi sticks/powder, Malabar Black Pepper, Methi</p>
+              <p>• <span class="font-semibold">Garam Masala:</span> Green Cardamom, Cloves (Lavanga), Cinnamon (Dalchini), Star Anise</p>
+              <p>• <span class="font-semibold">Hing:</span> Asafoetida, Dry Ginger (Shunti), Nutmeg &amp; Mace (Jaiphal)</p>
+            </div>
+          </div>
+          <div class="mt-4 pt-4 border-t border-stone-100 flex items-center justify-between text-xs">
+            <span class="text-stone-400">Packaged &amp; Loose portions</span>
+            <a href="https://wa.me/919916009477?text=Hello%20GPS%20Stores,%20I%20want%20to%20inquire%20about%20Spices%20and%20Masalas" target="_blank" class="text-emerald-700 font-bold hover:underline flex items-center gap-1">
+              WhatsApp Query <i class="fa-solid fa-chevron-right text-[10px]"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Card 3: Cooking Oils & Pure Ghee -->
+      <div class="product-card bg-white rounded-2xl border border-stone-200 overflow-hidden shadow-sm flex flex-col" data-category="spices">
+        <div class="relative h-56 bg-stone-100">
+          <img src="https://images.unsplash.com/photo-1474979266404-7eaacbcd87c5?auto=format&fit=crop&w=600&q=75" loading="lazy" width="600" height="224" alt="Cooking Oil" class="w-full h-full object-cover">
+          <span class="absolute top-3 right-3 bg-emerald-700 text-white text-[10px] font-bold px-2.5 py-1 rounded-full flex items-center gap-1 shadow">
+            <span class="w-1.5 h-1.5 rounded-full bg-white"></span> Available in Store
+          </span>
+          <span class="absolute bottom-3 left-3 bg-black/70 backdrop-blur-sm text-amber-300 text-[10px] font-bold px-2 py-0.5 rounded">
+            Cold Pressed &amp; Pure
+          </span>
+        </div>
+        <div class="p-6 flex-1 flex flex-col justify-between">
+          <div>
+            <h3 class="font-serif-title text-xl font-bold text-stone-900 mb-1">Cooking Oils &amp; Pure Ghee</h3>
+            <p class="text-xs text-stone-500 mb-4">Healthy cooking oils and aromatic cow ghee for food and rituals</p>
+            <div class="bg-stone-50 p-4 rounded-xl border border-stone-100 space-y-2 text-xs text-stone-700">
+              <p>• Pure Cold-Pressed Coconut Oil (Local coastal favorite for cooking &amp; wellness)</p>
+              <p>• Pure Cow Ghee (Rich golden aroma, suitable for rituals &amp; dishes)</p>
+              <p>• Sesame / Gingelly Oil (Pure Til oil for deep cooking &amp; sacred lamps)</p>
+              <p>• Sunflower Oil, Groundnut Oil, Mustard Oil</p>
+              <p>• Castor Oil &amp; Deepam Pooja Oils</p>
+            </div>
+          </div>
+          <div class="mt-4 pt-4 border-t border-stone-100 flex items-center justify-between text-xs">
+            <span class="text-stone-400">Packaged &amp; Loose portions</span>
+            <a href="https://wa.me/919916009477?text=Hello%20GPS%20Stores,%20I%20want%20to%20inquire%20about%20Oils%20and%20Ghee" target="_blank" class="text-emerald-700 font-bold hover:underline flex items-center gap-1">
+              WhatsApp Query <i class="fa-solid fa-chevron-right text-[10px]"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Card 4: Traditional Coastal Jaggery (Bella) & Daily Staples (WIRED TO jaggery.jpeg) -->
+      <div class="product-card bg-white rounded-2xl border border-stone-200 overflow-hidden shadow-sm flex flex-col" data-category="essentials">
+        <div class="relative h-56 bg-stone-100">
+          <img src="./images/jaggery.jpeg" 
+               onerror="this.src='jaggery.jpeg'" 
+               loading="lazy" 
+               width="600" 
+               height="224" 
+               alt="Traditional Jaggery Powder &amp; Cubes (Bella)" 
+               class="w-full h-full object-cover">
+          <span class="absolute top-3 right-3 bg-emerald-700 text-white text-[10px] font-bold px-2.5 py-1 rounded-full flex items-center gap-1 shadow">
+            <span class="w-1.5 h-1.5 rounded-full bg-white"></span> Available in Store
+          </span>
+          <span class="absolute bottom-3 left-3 bg-black/70 backdrop-blur-sm text-amber-300 text-[10px] font-bold px-2 py-0.5 rounded">
+            Traditional Sweeteners
+          </span>
+        </div>
+        <div class="p-6 flex-1 flex flex-col justify-between">
+          <div>
+            <h3 class="font-serif-title text-xl font-bold text-stone-900 mb-1">Traditional Jaggery &amp; Pantry Staples</h3>
+            <p class="text-xs text-stone-500 mb-4">Pure unrefined jaggery powder and blocks (Bella), sugars, salts, and packaged cooking staples</p>
+            <div class="bg-stone-50 p-4 rounded-xl border border-stone-100 space-y-2 text-xs text-stone-700">
+              <p>• <span class="font-semibold">Traditional Jaggery (Bella):</span> Organic powdered jaggery, block jaggery, dark palm jaggery, round balls</p>
+              <p>• <span class="font-semibold">Sugars &amp; Salts:</span> Pure Sulphurless White Sugar, Rock Sugar (Kallu Sakkare), Crystal Sea Salt, Rock Salt</p>
+              <p>• <span class="font-semibold">Cooking Essentials:</span> Tamarind (Hunase Hannu), Kokum (Punarpuli), Ready Vermicelli (Shavige)</p>
+              <p>• <span class="font-semibold">Snacks &amp; Savories:</span> Happala / Papad varieties, Sandige, Fryums, Biscuits, and Confectionery</p>
+              <p>• <span class="font-semibold">Household FMCG:</span> Indica Hair Colors, Bath Soaps, Shampoos, Surf Excel, Detergents</p>
+            </div>
+          </div>
+          <div class="mt-4 pt-4 border-t border-stone-100 flex items-center justify-between text-xs">
+            <span class="text-stone-400">Packaged &amp; Loose portions</span>
+            <a href="https://wa.me/919916009477?text=Hello%20GPS%20Stores,%20I%20want%20to%20inquire%20about%20Jaggery%20and%20Daily%20Provisions" target="_blank" class="text-emerald-700 font-bold hover:underline flex items-center gap-1">
+              WhatsApp Query <i class="fa-solid fa-chevron-right text-[10px]"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Bulk Orders Banner -->
+    <div class="mt-10 bg-[#fdf8ee] border border-amber-200 rounded-2xl p-5 flex flex-col sm:flex-row items-center justify-between gap-4 shadow-sm">
+      <div class="flex items-center gap-4 text-left">
+        <div class="w-12 h-12 rounded-xl bg-amber-100 text-[#b5580e] flex items-center justify-center text-xl shrink-0">
+          <i class="fa-solid fa-store"></i>
+        </div>
+        <div>
+          <h4 class="font-bold text-stone-900 text-sm sm:text-base">Need Bulk Orders or Festival Pooja Sets?</h4>
+          <p class="text-xs text-stone-600">We prepare custom grocery packs for temple sevas, weddings, and home ceremonies. Send your grocery list on WhatsApp!</p>
+        </div>
+      </div>
+      <a href="https://wa.me/919916009477?text=Hello%20GPS%20Stores,%20I%20have%20a%20bulk%20order%20inquiry." target="_blank" class="whitespace-nowrap px-5 py-2.5 rounded-lg bg-[#008f5d] hover:bg-[#007b50] text-white text-xs font-bold transition shadow-sm">
+        Send Grocery List
+      </a>
+    </div>
+
+  </section>
+
+  <!-- 6. OPERATING SCHEDULE & LIVE STATUS -->
+  <section id="schedule" class="py-16 bg-[#faf7f2] border-t border-stone-200">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 text-center">
+      
+      <div class="inline-block px-3 py-1 rounded-full bg-amber-50 text-amber-900 border border-amber-200 text-xs font-semibold tracking-wider mb-3">
+        RELIABLE STORE HOURS
+      </div>
+      <h2 class="font-serif-title text-3xl sm:text-4xl font-bold text-[#0d4a2b] mb-3">
+        Operating Schedule &amp; Live Status
+      </h2>
+      <div class="w-16 h-1 bg-[#d18417] mx-auto rounded-full mb-4"></div>
+      <p class="text-stone-600 text-sm sm:text-base mb-10">
+        Convenient 7-day operation for all early morning temple visitors and evening household grocery shoppers.
+      </p>
+
+      <!-- Dynamic Live Status Header Card -->
+      <div class="bg-white rounded-2xl border border-stone-200 p-6 shadow-sm mb-8 flex flex-col md:flex-row items-center justify-between gap-6 text-left">
+        <div class="flex items-center gap-4">
+          <div class="w-12 h-12 rounded-full bg-stone-100 flex items-center justify-center shrink-0">
+            <span id="live-status-dot" class="w-4 h-4 rounded-full bg-emerald-500 pulse-badge"></span>
+          </div>
+          <div>
+            <div class="flex items-center gap-2 mb-1">
+              <span id="live-status-badge" class="px-2.5 py-0.5 rounded text-[11px] font-bold tracking-wider bg-emerald-600 text-white uppercase">OPEN NOW</span>
+              <span id="live-status-day" class="text-xs text-stone-500 font-medium">Loading Day...</span>
+            </div>
+            <p id="live-status-subtext" class="text-sm font-semibold text-stone-800">Checking store timings...</p>
+          </div>
+        </div>
+
+        <!-- Clock widget box -->
+        <div class="bg-[#0b1726] text-white px-5 py-3 rounded-xl border border-slate-800 text-center md:text-right shrink-0 shadow-inner">
+          <p class="text-[10px] text-slate-400 font-mono tracking-wider uppercase mb-0.5">SALIGRAMA STORE CLOCK (IST)</p>
+          <p id="store-ist-clock" class="text-xl font-bold font-mono text-amber-300">--:--:-- -- IST</p>
+        </div>
+      </div>
+
+      <!-- Schedule Cards -->
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6 text-left">
+        
+        <!-- Monday - Saturday -->
+        <div class="bg-white rounded-2xl border-2 border-emerald-700/60 p-6 shadow-sm">
+          <div class="flex items-center justify-between mb-4">
+            <h3 class="font-serif-title text-xl font-bold text-stone-900">Monday to Saturday</h3>
+            <span class="px-2.5 py-1 rounded-full text-[10px] font-bold bg-emerald-50 text-emerald-800 border border-emerald-200">Full Day</span>
+          </div>
+          <p class="font-serif-title text-3xl font-bold text-[#0d4a2b] mb-3">
+            7:00 AM – 8:30 PM
+          </p>
+          <p class="text-xs text-stone-500 leading-relaxed">
+            Open continuously throughout the morning, afternoon, and evening for your grocery needs.
+          </p>
+        </div>
+
+        <!-- Sunday -->
+        <div class="bg-white rounded-2xl border border-stone-200 p-6 shadow-sm">
+          <div class="flex items-center justify-between mb-4">
+            <h3 class="font-serif-title text-xl font-bold text-stone-900">Sunday</h3>
+            <span class="px-2.5 py-1 rounded-full text-[10px] font-bold bg-amber-50 text-amber-900 border border-amber-200">Morning Shift</span>
+          </div>
+          <p class="font-serif-title text-3xl font-bold text-[#9e5414] mb-3">
+            7:00 AM – 1:15 PM
+          </p>
+          <p class="text-xs text-stone-500 leading-relaxed">
+            Open early morning for temple darshan &amp; weekend kitchen replenishment. Afternoon &amp; evening closed.
+          </p>
+        </div>
+
+      </div>
+
+      <p class="text-xs text-stone-500 mt-6 italic">
+        * Festival days, temple chariot festivals (Rathotsava), and auspicious occasions may feature extended hours. Feel free to call us.
+      </p>
+
+    </div>
+  </section>
+
+  <!-- 7. LOCATION & CONTACT SECTION -->
+  <section id="contact-location" class="py-16 bg-[#faf7f2] border-t border-stone-200">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6">
+
+      <!-- Action Button Row: Single Full-Width Copy Address Button -->
+      <div class="mb-8">
+        <button id="copy-address-btn" type="button" class="w-full flex items-center justify-center gap-2 py-3 px-4 rounded-xl border border-stone-300 bg-white hover:bg-stone-50 text-stone-800 text-sm font-semibold shadow-sm transition cursor-pointer">
+          <i class="fa-regular fa-copy"></i>
+          <span id="copy-btn-text">Copy Address</span>
+        </button>
+      </div>
+
+      <!-- Contact Cards Row -->
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-6">
+        
+        <!-- Call Store (Card with 9916009477) -->
+        <a href="tel:+919916009477" class="block bg-white p-6 rounded-2xl border border-stone-200 hover:border-emerald-700/50 shadow-sm transition group">
+          <div class="w-10 h-10 rounded-xl bg-[#e6f4ea] text-[#008f5d] flex items-center justify-center text-lg mb-4">
+            <i class="fa-solid fa-phone"></i>
+          </div>
+          <h3 class="font-serif-title font-bold text-stone-900 text-lg mb-1 group-hover:text-emerald-800 transition">Call the Store</h3>
+          <p class="text-xs text-stone-500 mb-2">Quick inquiries</p>
+          <p class="text-sm font-bold text-[#0d4a2b] font-mono store-phone-display">+91 99160 09477</p>
+        </a>
+
+        <!-- WhatsApp Chat (Card with 9916009477) -->
+        <a href="https://wa.me/919916009477?text=Hello%20GPS%20Stores,%20I%20have%20an%20inquiry." target="_blank" class="block bg-white p-6 rounded-2xl border-2 border-[#008f5d] shadow-sm transition group">
+          <div class="w-10 h-10 rounded-xl bg-[#008f5d] text-white flex items-center justify-center text-xl mb-4">
+            <i class="fa-brands fa-whatsapp"></i>
+          </div>
+          <h3 class="font-serif-title font-bold text-stone-900 text-lg mb-1 group-hover:text-[#008f5d] transition">WhatsApp Chat</h3>
+          <p class="text-xs text-stone-500 mb-2">Send grocery list</p>
+          <p class="text-sm font-bold text-[#008f5d] flex items-center gap-1">
+            Chat with Store <span>→</span>
+          </p>
+        </a>
+
+      </div>
+
+      <!-- Digital Payments Accepted Banner -->
+      <div class="bg-[#fef9e8] border border-amber-200 rounded-xl px-5 py-4 mb-10 flex items-center gap-3 shadow-sm">
+        <i class="fa-solid fa-credit-card text-sky-600 text-xl shrink-0"></i>
+        <p class="text-xs text-stone-700 leading-normal">
+          <strong class="text-stone-900">Digital Payments Accepted:</strong> Google Pay, PhonePe, Paytm, BHIM UPI, and Cash are seamlessly supported at our counter.
+        </p>
+      </div>
+
+      <!-- Interactive Location Map Box (Targeted Directly by 'Get Directions') -->
+      <div id="interactive-map" class="scroll-mt-24 bg-white rounded-2xl border border-stone-200 p-6 shadow-sm">
+        <div class="mb-4">
+          <p class="text-[10px] font-bold tracking-wider text-amber-800 uppercase">INTERACTIVE LOCATION MAP</p>
+          <h3 class="font-serif-title text-lg font-bold text-stone-900">GOPAL PUTTU SHANBHAG GENERAL STORE</h3>
+          <p id="store-address-display" class="text-xs text-stone-500">Main Road, Saligrama (Opp. Shree Anjaneya Temple)</p>
+        </div>
+
+        <!-- EMBED IFRAME -->
+        <div class="rounded-xl overflow-hidden border border-stone-200 h-96 bg-stone-100 mb-4">
+          <iframe 
+            id="store-map-iframe"
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d496589.0920265354!2d74.42964393281245!3d13.498587599999999!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bbc9692d1abe777%3A0x7db37e2d34d2e2c4!2sGOPAL%20PUTTU%20SHANBHAG%20GENERAL%20STORE!5e0!3m2!1sen!2sin!4v1791647216802!5m2!1sen!2sin" 
+            width="100%" 
+            height="100%" 
+            style="border:0;" 
+            allowfullscreen="" 
+            loading="lazy" 
+            referrerpolicy="strict-origin-when-cross-origin">
+          </iframe>
+        </div>
+
+        <p class="text-xs text-stone-500 leading-relaxed">
+          <strong class="text-stone-700">How to Reach:</strong> Located on the primary Saligrama market artery right opposite the renowned Shree Anjaneya Temple. Accessible within 2 minutes from NH 66 highway, with convenient parking in front for scooters and four-wheelers.
+        </p>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- 8. FOOTER -->
+  <footer class="bg-[#052815] text-[#b8cfc2] py-16 border-t border-emerald-950 text-xs">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6">
+      
+      <div class="grid grid-cols-1 md:grid-cols-12 gap-10 pb-12 border-b border-emerald-900/60">
+        
+        <!-- Column 1: Store Intro & Address -->
+        <div class="md:col-span-5 space-y-4">
+          <div class="flex items-center gap-3">
+            <div class="w-12 h-12 rounded-xl bg-[#e58319] flex items-center justify-center text-stone-900 font-serif-title font-bold text-xl shadow shrink-0">
+              GPS
+            </div>
+            <div>
+              <h3 class="font-header-brand text-base font-bold text-white tracking-wide">
+                GOPAL PUTTU SHANBHOGUE &amp; SONS
+              </h3>
+              <p class="text-amber-400 font-semibold text-xs">Saligrama, Karnataka - 576225</p>
+            </div>
+          </div>
+          <p class="leading-relaxed text-[#9fb8a9]">
+            Traditional merchant and general provisions store catering to everyday kitchen staples, whole grains, fragrant regional spices, cold-pressed oils, and sacred temple pooja needs.
+          </p>
+          <p class="font-bold text-[#e5a93c]">
+            Merchant, Opp. Anjaneya Temple, Main Road, Saligrama
+          </p>
+        </div>
+
+        <!-- Column 2: Navigation Links -->
+        <div class="md:col-span-3 space-y-3">
+          <h4 class="font-bold text-white tracking-wider uppercase text-xs">NAVIGATION</h4>
+          <ul class="space-y-2.5">
+            <li><a href="#top" class="hover:text-white transition">Home</a></li>
+            <li><a href="#about" class="hover:text-white transition">About &amp; Heritage</a></li>
+            <li><a href="#offerings" class="hover:text-white transition">Categories &amp; Offerings</a></li>
+            <li><a href="#schedule" class="hover:text-white transition">Store Operating Hours</a></li>
+            <li><a href="#interactive-map" class="hover:text-white transition">Location &amp; Google Maps</a></li>
+          </ul>
+        </div>
+
+        <!-- Column 3: Timings & Back to Top -->
+        <div class="md:col-span-4 space-y-4">
+          <h4 class="font-bold text-white tracking-wider uppercase text-xs">STORE TIMINGS</h4>
+          <div class="space-y-2">
+            <div class="flex justify-between items-center text-xs">
+              <span>Monday – Saturday:</span>
+              <span class="font-bold text-[#e5a93c]">7:00 AM – 8:30 PM</span>
+            </div>
+            <div class="flex justify-between items-center text-xs">
+              <span>Sunday:</span>
+              <span class="font-bold text-[#e5a93c]">7:00 AM – 1:15 PM</span>
+            </div>
+          </div>
+
+          <div class="pt-2 flex items-center justify-between">
+            <span class="text-[#849f8e]">UPI &amp; Cash accepted</span>
+            <a href="#top" class="text-amber-400 hover:text-amber-300 font-semibold inline-flex items-center gap-1 transition">
+              <span>Back to top</span>
+              <i class="fa-solid fa-arrow-up text-[10px]"></i>
+            </a>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Copyright Sub-bar -->
+      <div class="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-stone-400 text-[11px]">
+        <p>© 2026 GOPAL PUTTU SHANBHOGUE &amp; SONS. All rights reserved.</p>
+        <p>Saligrama • Opp. Anjaneya Temple • Karnataka - 576225</p>
+      </div>
+
+    </div>
+  </footer>
+
+  <!-- Toast Notification for Copied Address -->
+  <div id="copy-toast" class="fixed bottom-6 right-6 bg-stone-950 text-white text-xs px-4 py-2.5 rounded-lg shadow-xl opacity-0 transition-opacity pointer-events-none z-50 flex items-center gap-2">
+    <i class="fa-solid fa-check text-emerald-400 animate-pulse"></i>
+    <span>Address copied to clipboard!</span>
+  </div>
+
+  <!-- Built-In Scripts: Clocks, Timings, Copy, and Menu -->
+  <script>
+    // 1. Live IST Clock & Accurate Store Open/Close Timing Engine
+    function updateStoreTimeAndStatus() {
+      const now = new Date();
+      
+      // Calculate IST Time (UTC + 5.5 hours)
+      const utc = now.getTime() + (now.getTimezoneOffset() * 60000);
+      const istTime = new Date(utc + (3600000 * 5.5));
+      
+      const days = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
+      const currentDay = days[istTime.getDay()];
+      const hours = istTime.getHours();
+      const minutes = istTime.getMinutes();
+      const seconds = istTime.getSeconds();
+      
+      // 12-hour formatted time
+      const h12 = hours % 12 || 12;
+      const ampm = hours >= 12 ? 'PM' : 'AM';
+      const pad = (n) => String(n).padStart(2, '0');
+      const timeStr = `${pad(h12)}:${pad(minutes)}:${pad(seconds)} ${ampm} IST`;
+      const shortTimeStr = `${pad(h12)}:${pad(minutes)} ${ampm} IST`;
+
+      const topClock = document.getElementById('top-bar-clock');
+      if (topClock) topClock.innerText = `${currentDay.slice(0,3)}, ${shortTimeStr}`;
+
+      const mainClock = document.getElementById('store-ist-clock');
+      if (mainClock) mainClock.innerText = timeStr;
+
+      const decimalTime = hours + (minutes / 60);
+      let isOpen = false;
+      let nextMsg = "";
+
+      if (istTime.getDay() === 0) {
+        // Sunday: 7:00 AM to 1:15 PM
+        isOpen = decimalTime >= 7.0 && decimalTime < 13.25;
+        nextMsg = isOpen ? "Open today until 1:15 PM" : "Closed today (Sunday afternoon). Reopens Monday 7:00 AM";
+      } else {
+        // Mon - Sat: 7:00 AM to 8:30 PM
+        isOpen = decimalTime >= 7.0 && decimalTime < 20.5;
+        nextMsg = isOpen ? "Open today until 8:30 PM" : "Closed for the day. Reopens tomorrow at 7:00 AM";
+      }
+
+      const statusBadge = document.getElementById('live-status-badge');
+      const statusDot = document.getElementById('live-status-dot');
+      const dayEl = document.getElementById('live-status-day');
+      const subtextEl = document.getElementById('live-status-subtext');
+      const heroSubEl = document.getElementById('hero-status-sub');
+      const navBadge = document.getElementById('nav-timing-badge');
+
+      if (dayEl) dayEl.innerText = `${currentDay} • Saligrama`;
+      if (subtextEl) subtextEl.innerText = nextMsg;
+
+      if (isOpen) {
+        if (statusBadge) {
+          statusBadge.innerText = "OPEN NOW";
+          statusBadge.className = "px-2.5 py-0.5 rounded text-[11px] font-bold tracking-wider bg-emerald-600 text-white uppercase";
+        }
+        if (statusDot) statusDot.className = "w-4 h-4 rounded-full bg-emerald-500 pulse-badge";
+        if (heroSubEl) {
+          heroSubEl.innerHTML = `<span class="inline-block w-2.5 h-2.5 rounded-full bg-emerald-500 mr-2 pulse-badge"></span> Store Open Today (${currentDay})`;
+        }
+        if (navBadge) {
+          navBadge.innerText = "Open Now";
+          navBadge.className = "px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wide bg-emerald-100 text-emerald-800";
+        }
+      } else {
+        if (statusBadge) {
+          statusBadge.innerText = "CLOSED NOW";
+          statusBadge.className = "px-2.5 py-0.5 rounded text-[11px] font-bold tracking-wider bg-rose-600 text-white uppercase";
+        }
+        if (statusDot) statusDot.className = "w-4 h-4 rounded-full bg-rose-500 pulse-badge";
+        if (heroSubEl) {
+          heroSubEl.innerHTML = `<span class="inline-block w-2.5 h-2.5 rounded-full bg-rose-500 mr-2 pulse-badge"></span> Store Closed Now (${currentDay})`;
+        }
+        if (navBadge) {
+          navBadge.innerText = "Closed Now";
+          navBadge.className = "px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wide bg-rose-100 text-rose-800";
+        }
+      }
+    }
+
+    updateStoreTimeAndStatus();
+    setInterval(updateStoreTimeAndStatus, 1000);
+
+    // 2. Copy Address Action
+    const copyBtn = document.getElementById('copy-address-btn');
+    if (copyBtn) {
+      copyBtn.addEventListener('click', () => {
+        const addr = "Gopal Puttu Shanbhogue & Sons, Opposite Shree Anjaneya Temple, Main Road, Saligrama, Karnataka - 576225";
+        navigator.clipboard.writeText(addr).then(() => {
+          const toast = document.getElementById('copy-toast');
+          const btnText = document.getElementById('copy-btn-text');
+          if (btnText) btnText.innerText = "Address Copied!";
+          if (toast) {
+            toast.classList.remove('opacity-0');
+            toast.classList.add('opacity-100');
+            setTimeout(() => {
+              toast.classList.remove('opacity-100');
+              toast.classList.add('opacity-0');
+              if (btnText) btnText.innerText = "Copy Address";
+            }, 2500);
+          }
+        });
+      });
+    }
+
+    // 3. Mobile Navigation Menu Toggle
+    const menuBtn = document.getElementById('menu-toggle-btn');
+    const menuPanel = document.getElementById('full-menu-panel');
+    const menuIcon = document.getElementById('menu-toggle-icon');
+
+    if (menuBtn && menuPanel) {
+      menuBtn.addEventListener('click', () => {
+        const isHidden = menuPanel.classList.contains('hidden');
+        if (isHidden) {
+          menuPanel.classList.remove('hidden');
+          menuPanel.classList.add('flex');
+          if (menuIcon) {
+            menuIcon.classList.remove('fa-bars');
+            menuIcon.classList.add('fa-xmark');
+          }
+        } else {
+          menuPanel.classList.add('hidden');
+          menuPanel.classList.remove('flex');
+          if (menuIcon) {
+            menuIcon.classList.remove('fa-xmark');
+            menuIcon.classList.add('fa-bars');
+          }
+        }
+      });
+
+      document.querySelectorAll('.nav-item-link').forEach(link => {
+        link.addEventListener('click', () => {
+          menuPanel.classList.add('hidden');
+          menuPanel.classList.remove('flex');
+          if (menuIcon) {
+            menuIcon.classList.remove('fa-xmark');
+            menuIcon.classList.add('fa-bars');
+          }
+        });
+      });
+    }
+  </script>
+
+  <script src="script.js"></script>
+</body>
+</html>

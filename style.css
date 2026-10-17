@@ -1,0 +1,73 @@
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700&family=Playfair+Display:wght@600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap');
+
+:root {
+  --primary-green: #0a3821;
+  --accent-gold: #b36712;
+  --bg-cream: #faf7f2;
+}
+
+/* Force hardware accelerated scrolling */
+html {
+  scroll-behavior: smooth;
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  background-color: var(--bg-cream);
+  color: #1c2b22;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.font-serif-title {
+  font-family: 'Playfair Display', serif;
+}
+
+.font-header-brand {
+  font-family: 'Cinzel', serif;
+  letter-spacing: 0.5px;
+}
+
+/* Wavy underline under "Saligrama" */
+.wavy-underline {
+  text-decoration: underline wavy #e5a93c;
+  text-decoration-thickness: 3px;
+  text-underline-offset: 8px;
+}
+
+/* Smooth Hardware-Accelerated Dropdown Panel */
+#full-menu-panel {
+  will-change: opacity, transform;
+  transition: opacity 0.2s ease, transform 0.2s ease;
+}
+
+#full-menu-panel.open {
+  display: flex !important;
+}
+
+.nav-item-link {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+}
+
+/* Lightweight Transform-Only Pulse Badges (Zero Layout Reflow) */
+.pulse-badge {
+  animation: pulse-dot-red 2s infinite ease-in-out;
+  transform: translateZ(0);
+}
+
+.pulse-badge-open {
+  animation: pulse-dot-green 2s infinite ease-in-out;
+  transform: translateZ(0);
+}
+
+@keyframes pulse-dot-red {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.4; transform: scale(1.15); }
+}
+
+@keyframes pulse-dot-green {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.4; transform: scale(1.15); }
+}
